@@ -54,7 +54,12 @@ Follow the steps below to get your project up and running:
     php artisan migrate
     ```
 
-4. **Serve Application**: Finally, serve the application using PHP's built-in web server:
+4. **Seed Database**: Run db:seed artisan command to seed the database.
+    ```bash
+    php artisan db:seed
+    ```
+   
+5. **Serve Application**: Finally, serve the application using PHP's built-in web server:
     ```bash
     php artisan serve
     ```
