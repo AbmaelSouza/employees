@@ -1,0 +1,28 @@
+services:
+    mysql:
+        image: 'mysql:8.0'
+        container_name: mysql_db
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_ROOT_HOST: 'localhost'
+            MYSQL_DATABASE: 'laravel'
+            MYSQL_USER: 'laravel'
+            MYSQL_PASSWORD: 'secret'
+        volumes:
+            - 'mysql_data:/var/lib/mysql'
+        networks:
+            - mysql_network
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            retries: 3
+            timeout: 5s
+
+networks:
+    mysql_network:
+        driver: bridge
+
+volumes:
+    mysql_data:
+        driver: local
