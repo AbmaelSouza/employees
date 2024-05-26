@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class FuncionarioController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $funcionarios = Funcionario::with('departamento')->get();
         return view('funcionarios.index', compact('funcionarios'));
     }
 
-    public function create() {
+    public function create()
+    {
         $departamentos = Departamento::all();
         return view('funcionarios.create', compact('departamentos'));
     }
@@ -33,16 +35,19 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionarios.index');
     }
 
-    public function show(Funcionario $funcionario) {
+    public function show(Funcionario $funcionario)
+    {
         return view('funcionarios.show', compact('funcionario'));
     }
 
-    public function edit(Funcionario $funcionario) {
+    public function edit(Funcionario $funcionario)
+    {
         $departamentos = Departamento::all();
         return view('funcionarios.edit', compact('funcionario', 'departamentos'));
     }
 
-    public function update(Request $request, Funcionario $funcionario) {
+    public function update(Request $request, Funcionario $funcionario)
+    {
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'email' => 'required|email|unique:funcionarios,email,' . $funcionario->id,
@@ -56,7 +61,8 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionarios.index');
     }
 
-    public function destroy(Funcionario $funcionario) {
+    public function destroy(Funcionario $funcionario)
+    {
         $funcionario->delete();
         return redirect()->route('funcionarios.index');
     }

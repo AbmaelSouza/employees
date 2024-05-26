@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Funcionario extends Model
 {
     use HasFactory;
+
     protected $fillable = ['nome', 'email', 'cpf', 'idade', 'departamento_id'];
 
-    public function departamento() {
+    public function departamento()
+    {
         return $this->belongsTo(Departamento::class);
     }
 }

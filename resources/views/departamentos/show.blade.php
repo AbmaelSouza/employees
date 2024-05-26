@@ -33,7 +33,8 @@
                 <tr style="border-bottom: 1px solid #ccc;">
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->nome }}</td>
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->email }}</td>
-                    <td style="padding: 8px; text-align: center;"><a href="{{route('funcionarios.show',$funcionario->id)}}">Go</a></td>
+                    <td style="padding: 8px; text-align: center;"><a
+                            href="{{route('funcionarios.show',$funcionario->id)}}">Go</a></td>
                 </tr>
             @endforeach
             </tbody>
@@ -56,11 +57,15 @@
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->nome }}</td>
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->email }}</td>
                     <td style="padding: 8px; text-align: center;">
-                    <form action="{{ route('departamentos.addEmployee', [$departamento->id,$funcionario->id]) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('POST')
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to add this employee to this department?')">Add</button>
-                    </form>
+                        <form action="{{ route('departamentos.addEmployee', [$departamento->id,$funcionario->id]) }}"
+                              method="POST" class="d-inline">
+                            @csrf
+                            @method('POST')
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Are you sure you want to add this employee to this department?')">
+                                Add
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
