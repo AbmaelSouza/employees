@@ -15,7 +15,7 @@
         <strong>Age:</strong> {{ $funcionario->idade }}
     </div>
     <div>
-        <strong>Department:</strong> {{ $funcionario->departamento->nome }}
+        <strong>Department:</strong> <a href="{{route('departamentos.show',$funcionario->departamento->id )}}"> {{ $funcionario->departamento->nome }}</a>
     </div>
     <div>
         <a href="{{ route('funcionarios.edit', $funcionario->id) }}" class="btn btn-primary">Edit</a>

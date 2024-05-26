@@ -25,6 +25,7 @@
             <tr style="border-bottom: 1px solid #ccc;">
                 <th style="padding: 8px;text-align: center;">Employee</th>
                 <th style="padding: 8px;text-align: center;">Email</th>
+                <th style="padding: 8px;text-align: center;">Go to</th>
             </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                 <tr style="border-bottom: 1px solid #ccc;">
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->nome }}</td>
                     <td style="padding: 8px; text-align: center;">{{ $funcionario->email }}</td>
+                    <td style="padding: 8px; text-align: center;"><a href="{{route('funcionarios.show',$funcionario->id)}}">Go</a></td>
                 </tr>
             @endforeach
             </tbody>
