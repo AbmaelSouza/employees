@@ -20,6 +20,12 @@
 <main>
     @yield('content')
 </main>
+<script>document.querySelectorAll('[action]').forEach((form)=>{
+    if(!window.location.href.includes('localhost') && !window.location.href.includes('127.0.0.1')) {
+        form.action = form.action.replace('http', 'https');
+    }
+
+    })</script>
 
 </body>
 </html>
