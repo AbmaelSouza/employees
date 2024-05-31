@@ -21,6 +21,5 @@
     @yield('content')
 </main>
 
-<!-- Include any JavaScript files or libraries needed for your layout -->
 </body>
 </html>
